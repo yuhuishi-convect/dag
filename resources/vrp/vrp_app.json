@@ -1,0 +1,48 @@
+{
+    "name": "Vechicle Routing",
+    "description": "An app that route vehicles",
+    "schemas": [
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Location",
+            "type": "object",
+            "properties": {
+                "location_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "latitude": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "name",
+                "longitude",
+                "latitude"
+            ]
+        },
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Vehicle",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "location_id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "location_id"
+            ]
+        }
+        
+    ]
+}

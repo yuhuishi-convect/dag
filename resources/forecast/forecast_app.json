@@ -1,0 +1,51 @@
+{
+    "name": "Demand forecasting",
+    "description": "An app that can do demand forecasting",
+    "schemas": [
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Product",
+            "type": "object",
+            "properties": {
+                "product_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "category": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "product_id",
+                "name"
+            ]
+        },
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "title": "Sales",
+            "type": "object",
+            "properties": {
+
+                "product_id": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "date": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "product_id",
+                "quantity",
+                "date"
+            ]
+        }
+    ]
+}

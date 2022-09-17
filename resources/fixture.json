@@ -1,0 +1,236 @@
+[
+    {
+        "model": "data_api.app",
+        "pk": 1,
+        "fields": {
+            "name": "Demand forecasting",
+            "description": "An app that can do demand forecasting",
+            "schemas": [
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "Product",
+                    "type": "object",
+                    "properties": {
+                        "product_id": {
+                            "type": "integer"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "price": {
+                            "type": "number"
+                        },
+                        "category": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "name"
+                    ]
+                },
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "Sales",
+                    "type": "object",
+                    "properties": {
+                        "product_id": {
+                            "type": "integer"
+                        },
+                        "quantity": {
+                            "type": "integer"
+                        },
+                        "date": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "product_id",
+                        "quantity",
+                        "date"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "model": "data_api.app",
+        "pk": 2,
+        "fields": {
+            "name": "Demand forecasting",
+            "description": "An app that can do demand forecasting",
+            "schemas": [
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "Product",
+                    "type": "object",
+                    "properties": {
+                        "product_id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "price": {
+                            "type": "number"
+                        },
+                        "category": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "product_id",
+                        "name"
+                    ]
+                },
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "Sales",
+                    "type": "object",
+                    "properties": {
+                        "product_id": {
+                            "type": "string"
+                        },
+                        "quantity": {
+                            "type": "integer"
+                        },
+                        "date": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "product_id",
+                        "quantity",
+                        "date"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "model": "data_api.dataset",
+        "pk": 1,
+        "fields": {
+            "name": "a new dataset",
+            "description": "some description",
+            "app": 1
+        }
+    },
+    {
+        "model": "data_api.dataset",
+        "pk": 2,
+        "fields": {
+            "name": "a new dataset",
+            "description": "some description",
+            "app": 2
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 1,
+        "fields": {
+            "resource_type": "product",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "name": "product 1",
+                "price": 100,
+                "category": "category 1"
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 2,
+        "fields": {
+            "resource_type": "product",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "name": "product 1",
+                "price": 100,
+                "category": "category 1"
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 3,
+        "fields": {
+            "resource_type": "product",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "name": "product 1",
+                "price": 100,
+                "category": "category 1"
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 4,
+        "fields": {
+            "resource_type": "product",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "name": "product 1",
+                "price": 100,
+                "category": "category 1"
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 6,
+        "fields": {
+            "resource_type": "sales",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "date": "2020-01-01",
+                "quantity": 1
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 7,
+        "fields": {
+            "resource_type": "sales",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "date": "2020-01-01",
+                "quantity": 1
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 8,
+        "fields": {
+            "resource_type": "sales",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "date": "2020-01-01",
+                "quantity": 1
+            }
+        }
+    },
+    {
+        "model": "data_api.resource",
+        "pk": 9,
+        "fields": {
+            "resource_type": "sales",
+            "dataset": 2,
+            "value": {
+                "product_id": "product 1",
+                "date": "2020-01-01",
+                "quantity": 1
+            }
+        }
+    }
+]
