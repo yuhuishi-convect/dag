@@ -35,7 +35,6 @@ def generate_openapi_paths(url_prefix, resource_schema):
                 "description": f"Create a new {resource_type}",
                 "operationId": f"create_{resource_type}",
                 "parameters": [
-                    {"$ref": "#/components/parameters/app_id"},
                     {"$ref": "#/components/parameters/dataset_id"},
                 ],
                 "requestBody": {
@@ -156,6 +155,7 @@ def generate_openapi_schema_common_paths(url_prefix):
                 "summary": "List dataset",
                 "description": "List all dataset",
                 "operationId": "list_dataset",
+                "tags": ["meta"],
                 "responses": {
                     "200": {
                         "description": "List of dataset",
@@ -174,6 +174,7 @@ def generate_openapi_schema_common_paths(url_prefix):
                 "summary": "Create dataset",
                 "description": "Create a new dataset",
                 "operationId": "create_dataset",
+                "tags": ["meta"],
                 "requestBody": {
                     "description": "Dataset to create",
                     "content": {
@@ -200,6 +201,7 @@ def generate_openapi_schema_common_paths(url_prefix):
                 "summary": "Get dataset",
                 "description": "Get a dataset",
                 "operationId": "get_dataset",
+                "tags": ["meta"],
                 "parameters": [{"$ref": "#/components/parameters/dataset_id"}],
                 "responses": {
                     "200": {
@@ -216,6 +218,7 @@ def generate_openapi_schema_common_paths(url_prefix):
                 "summary": "Update dataset",
                 "description": "Update a dataset",
                 "operationId": "update_dataset",
+                "tags": ["meta"],
                 "parameters": [{"$ref": "#/components/parameters/dataset_id"}],
                 "requestBody": {
                     "description": "Dataset to update",
@@ -241,6 +244,7 @@ def generate_openapi_schema_common_paths(url_prefix):
                 "summary": "Delete dataset",
                 "description": "Delete a dataset",
                 "operationId": "delete_dataset",
+                "tags": ["meta"],
                 "parameters": [{"$ref": "#/components/parameters/dataset_id"}],
                 "responses": {"204": {"description": "Dataset deleted"}},
             },
@@ -250,11 +254,12 @@ def generate_openapi_schema_common_paths(url_prefix):
                 "summary": "Dump dataset",
                 "description": "Dump a dataset",
                 "operationId": "dump_dataset",
+                "tags": ["meta"],
                 "parameters": [
                     {"$ref": "#/components/parameters/dataset_id"},
                     # dump_type in query string, default to json. Can be json, xlsx
                     {
-                        "name": "dump_type",
+                        "name": "type",
                         "in": "query",
                         "description": "Dump type",
                         "required": False,
@@ -299,7 +304,8 @@ def generate_openapi_schema_for_app(app_id):
     schemas = app.schemas
     paths = {}
     oas_schemas = {}
-    common_paths = generate_openapi_schema_common_paths(url_prefix)
+    meta_url_prefix = f"api/apps/{app_id}"
+    common_paths = generate_openapi_schema_common_paths(meta_url_prefix)
     for schema in schemas:
         resource_paths = generate_openapi_paths(url_prefix, schema)
         paths.update(resource_paths)
